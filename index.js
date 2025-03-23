@@ -8,6 +8,7 @@ import registrationHandler from "./Service/registration.js";
 import { initializeWebSocket } from "./Server/socket.js";
 import searchSongs from "./Service/searchSongs.js";
 import playSong from "./Service/playSong.js";
+import login from "./Service/login.js";
 
 const app = express();
 dotenv.config();
@@ -23,7 +24,7 @@ const io = new Server(httpServer, {
   },
   
 });
-console.log('io:', io)
+
 app.use(cors({
     origin: '*',
     methods: ["GET", "POST", 'PUT', 'PATCH'],
@@ -41,6 +42,8 @@ app.get('/api/search', searchSongs);
 app.get('/api/search/playSong', playSong)
 
 app.post('/api/register', registrationHandler)
+
+app.post('/api/login', login)
 
 httpServer.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

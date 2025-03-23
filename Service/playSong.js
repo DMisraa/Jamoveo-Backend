@@ -6,6 +6,7 @@ export default async function playSong(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
+  let songUrlWithInstrument
   const songUrl = String(req.query.query);
   console.log('Song URL:', songUrl)
   
@@ -13,15 +14,26 @@ export default async function playSong(req, res) {
     return res.status(400).json({ error: "Missing song URL" });
   }
 
+    const songIdentifier = songUrl.split("/tabs/songs/")[1].split(".html")[0]
+    const lyricsUrl = `https://www.tab4u.com/lyrics/songs/${songIdentifier}.html#song`
+    console.log('lyricsUrl', lyricsUrl)
+
   const instrumentParamMap = {
     piano: "?type=piano&cDeDi=2",
     ukulele: "?type=ukulele&cDeDi=3",
-    lyrics: "/lyrics", // Different path for lyrics
+    vocals: lyricsUrl
   };
+
+  const songURLs = {
+    guitarURL: songUrl,
+    pianoURL: songUrl + instrumentParamMap.piano,
+    ukuleleURL: songUrl + instrumentParamMap.ukulele,
+    vocalsURL: lyricsUrl
+  }
   
   const instrument = req.query.instrument || "guitar";
-  const instrumentSuffix = instrumentParamMap[instrument] || "";
-  const songUrlWithInstrument = songUrl.includes("/lyrics") ? songUrl : songUrl + instrumentSuffix;
+  console.log('instrument:', req.query.instrument)
+  
 
   // song url https://www.tab4u.com//tabs/songs/6339_The_Beach_Boys_-_California_Feelin%26%2339%3B.html
    // https://www.tab4u.com/tabs/songs/6339_The_Beach_Boys_-_California_Feelin%26%2339%3B.html?type=piano&cDeDi=2 url for piono
@@ -31,11 +43,24 @@ export default async function playSong(req, res) {
    // sonn url pioni: https://www.tab4u.com/tabs/songs/3225_Red_Hot_Chili_Peppers_-_Snow.html?type=piano&cDeDi=2
    // song ulr yukalele: https://www.tab4u.com/tabs/songs/3225_Red_Hot_Chili_Peppers_-_Snow.html?type=ukulele&cDeDi=3
    // song url only lyrics: https://www.tab4u.com/lyrics/songs/3225_Red_Hot_Chili_Peppers_-_Snow.html#song
+  //  <option value="vocals">Vocals</option>
+  //             <option value="guitar">Guitar</option>
+  //             <option value="piano">Piano</option>
+  //             <option value="ukulele">Ukulele<
   try {
     // Fetch the song page
+    if (instrument === 'vocals') {
+      songUrlWithInstrument = songURLs.vocalsURL
+    } else if (instrument === 'piano') {
+      songUrlWithInstrument = songURLs.pianoURL
+    } else if (instrument === 'yukalele') {
+      songUrlWithInstrument = songURLs.ukuleleURL
+    } else {
+      songUrlWithInstrument = songURLs.guitarURL
+    }
+
     const response = await axios.get(songUrlWithInstrument);
     const $ = cheerio.load(response.data);
-    console.log('response Data:', response.data)
 
     // Extract song title
     const title = $("h1.song-title").text().trim() || $("title").text().trim();
