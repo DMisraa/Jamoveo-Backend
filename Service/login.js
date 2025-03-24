@@ -25,7 +25,7 @@ export default async function login(req, res) {
         { expiresIn: "2h" }
       );
   
-      res.json({ token, admin: user.admin, instrument: user.instrument }); // Send `admin` status to frontend
+      res.json({ token, admin: user.admin, instrument: user.instrument }); 
     } catch (error) {
       console.error("Login error:", error);
       res.status(500).json({ error: "Internal server error" });

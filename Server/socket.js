@@ -1,7 +1,3 @@
-import dotenv from "dotenv";
-
-dotenv.config();
-
 export function initializeWebSocket(io) {
   io.on("connection", (socket) => {
     console.log("A user connected:", socket.id);
@@ -9,8 +5,6 @@ export function initializeWebSocket(io) {
     socket.on("joinRoom", ({ roomId }) => {
       socket.join(roomId);
       console.log("web socket connected, joined room:", roomId);
-
-      // io.to(roomId).emit("songSelected", { songSelected: false });
     });
 
     socket.on("songPicked", ({ roomId, song, data }) => {

@@ -2,13 +2,15 @@ import express from "express";
 import cors from "cors";
 import dotenv from 'dotenv';
 import bodyParser from "body-parser";
-import { Server } from "socket.io";
-import { createServer } from "http";
-import registrationHandler from "./Service/registration.js";
-import { initializeWebSocket } from "./Server/socket.js";
+
 import searchSongs from "./Service/searchSongs.js";
 import playSong from "./Service/playSong.js";
 import login from "./Service/login.js";
+import registrationHandler from "./Service/registration.js";
+import { Server } from "socket.io";
+import { createServer } from "http";
+import { initializeWebSocket } from "./Server/socket.js";
+
 
 const app = express();
 dotenv.config();
@@ -22,7 +24,6 @@ const io = new Server(httpServer, {
     methods: ["GET", "POST", 'PUT', 'PATCH'],
     credentials: true
   },
-  
 });
 
 app.use(cors({
@@ -31,9 +32,6 @@ app.use(cors({
     credentials: true
   }));
 
-// app.get("/", (req, res) => {
-//   res.send("Hello, Node.js!");
-// });
 
 initializeWebSocket(io)
 

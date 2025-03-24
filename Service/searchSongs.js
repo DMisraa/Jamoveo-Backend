@@ -5,6 +5,7 @@ import qs from "qs";
 const loginUrl = "https://www.tab4u.com/"; 
 const searchUrl = "https://www.tab4u.com/resultsSimple"; // URL to fetch after login
 
+// login data 
 const loginData = qs.stringify({
   username: "danielmenahem90@gmail.com", 
   password: "D9874123",
@@ -25,18 +26,18 @@ async function searchSong(req, res) {
   }
 
   try {
-    // Step 1: Log in to the site
+    // Log in to the site
     const loginResponse = await axios.post(loginUrl, loginData, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      withCredentials: true, // Make sure cookies are sent and received
+      withCredentials: true, 
     });
 
     // Capture the cookies from the login response
     cookies.push(...loginResponse.headers["set-cookie"]);
 
-    // Step 2: Search for the song using the search query
+    // Search for the song using the search query
     const response = await axios.get(`${searchUrl}?q=${encodeURIComponent(searchQuery.substring(0, 50))}`, {
         headers: {
           "Cookie": cookies.join("; "),
@@ -46,6 +47,7 @@ async function searchSong(req, res) {
     const $ = cheerio.load(response.data);
     const songs = [];
 
+    // Extracting songs data
     $("a.songLinkT").each((index, element) => {
       const songTitle = $(element).find(".sNameI19").text().trim();
       const artistName = $(element).find(".aNameI19").text().trim();
@@ -69,9 +71,6 @@ async function searchSong(req, res) {
       });
     });
 
-    console.log("songs:", songs); // Log the songs array
-
-    // Send the result back to the front-end
     return res.json({ results: songs });
   } catch (error) {
     console.error("Error during login or search:", error);

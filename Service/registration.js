@@ -1,8 +1,6 @@
-
 import bcryptjs from 'bcryptjs';
 import { ObjectId } from 'mongodb';
 import jwt from 'jsonwebtoken';
-
 import { connectToDatabase } from '../utils/database.js';
 
 export default async function registrationHandler(req, res) {
@@ -11,7 +9,6 @@ export default async function registrationHandler(req, res) {
   if (req.method === 'POST') {
     try {
       const { username, password, instrument, admin } = req.body;
-      console.log('admin:', admin)
 
       if (!username || !password || !instrument) {
         return res.status(400).json({ message: 'All fields are required' });
@@ -19,7 +16,6 @@ export default async function registrationHandler(req, res) {
 
       // Password Hashing
       const hashedPassword = await hash(password, 10);
-      console.log('hashed Password', hashedPassword)
 
       const { usersCollection, client } = await connectToDatabase();
 
@@ -37,7 +33,6 @@ export default async function registrationHandler(req, res) {
           instrument,
           token
       };
-      console.log('New User:', newUser)
 
       await usersCollection.insertOne(newUser);
       await client.close();
