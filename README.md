@@ -12,52 +12,41 @@
 </ul>
 
 <h3> Main Page </h3>
-<ul>
-Players: Initially see "Waiting for next song" until the admin selects one.
 
-Admin: Can search for songs in English or Hebrew.
-
-Song Search (Admin)
-
-Admin enters a search query and navigates to a results page.
-
-Displays song name, artist, and image (if available).
-
-Upon selection, moves all users to the live page.
+<ul> 
+  <li> <strong> Main Page (Admin): </strong> The admin's main page allows them to search for songs in English (Hebrew not available yet). Once a song is selected from the results, all users are moved to the live page. </li> 
+  <li> <strong> Main Page (Player): </strong> Players see a waiting screen with the message "Waiting for next song" until the admin selects a song, at which point they are redirected to the live page. </li>
 </ul>
 
-Live Page
+<h3> Live Page </h3>
+<ul>
+<li> Displays the song title and author. </li>
 
-Displays the song title and author.
+<li> Singers see only lyrics + chords (not managed to fix this yet). </li>
 
-Singers see only lyrics.
+<li> Instrumentalists see both lyrics and chords. </li>
 
-Instrumentalists see both lyrics and chords.
+<li> Includes a toggle for auto-scrolling. </li>
+</ul>
 
-Includes a toggle for auto-scrolling.
+<h3> Technical Details </h3>
 
-Admin has a "Quit" button that ends the session for all users.
+  <li> <strong> Stack: </strong> Node.js, Next.JS </li>
 
-Technical Details
+  <li> <strong> Database: </strong> Stores users and roles via MongoDB. </li>
 
-Stack: Client-server architecture with real-time updates via WebSockets.
+  <li> <strong> Deployment: </strong> Railway & Vercel </li>
 
-Database: Stores users and roles.
+  <li> <strong> PageUpdates: </strong> real-time updates via WebSockets. </li>
 
-Deployment: Includes setup for user registration, with a dedicated admin URL.
+<h3> Deployment & Access </h3>
 
-Styling: Optimized for readability in a smoky rehearsal environment.
+<ul>
+<li> Implement web crawling to fetch live song data from external sources (Tab4U). </li>
 
-Deployment & Access
+<li> Improve UI with animations and additional customization features.
+</ul>
 
-User Registration: Users can sign up via the signup page.
 
-Admin Access: Admin registration occurs via a separate URL.
 
-Live Demo: [Provide deployed URL]
 
-Future Enhancements
-
-Implement web crawling to fetch live song data from external sources.
-
-Improve UI with animations and additional customization features.
