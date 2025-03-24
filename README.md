@@ -22,7 +22,7 @@
 <ul>
 <li> Displays the song title and author. </li>
 
-<li> Singers see only lyrics + chords (not managed to fix this yet). </li>
+<li> Singers see lyrics + chords (not managed to fix this yet). </li>
 
 <li> Instrumentalists see both lyrics and chords. </li>
 
