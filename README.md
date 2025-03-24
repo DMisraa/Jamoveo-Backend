@@ -37,7 +37,7 @@
 
   <li> <strong> Deployment: </strong> Railway & Vercel </li>
 
-  <li> <strong> PageUpdates: </strong> real-time updates via WebSockets. </li>
+  <li> <strong> PageUpdates: </strong> Real-time updates via WebSockets. </li>
 
 <h3> Deployment & Access </h3>
 
