@@ -18,9 +18,6 @@ async function searchSong(req, res) {
   axios.defaults.headers.common["Accept-Charset"] = "utf-8";
   cookies.length = 0;
 
-  const { userId } = req.body;
-  console.log("userId:", userId);
-
   if (!searchQuery) {
     return res.status(400).send({ error: "Search query is required." });
   }
