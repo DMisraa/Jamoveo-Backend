@@ -1,10 +1,6 @@
-<h1> JaMoveo - Rehearsal Room Web App <h1></h1>
+<h1> JaMoveo - Rehearsal Room Web App </h1/>
 
-Overview
-
-JaMoveo is a web application designed to enhance Moveo's rehearsal sessions by providing a collaborative digital platform for musicians. Users can log in, specify their instrument, and join live rehearsals. An admin user manages the session, selects songs, and ensures that each musician sees the relevant content (lyrics or chords).
-
-Features
+<h2> Features <h2/>
 
 Authentication
 
