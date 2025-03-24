@@ -8,7 +8,7 @@
   
 <li> <strong> Signup Page: </strong> Users register with a username, password, and instrument. </li>
 
-<li> <strong> Login Page: </strong> Users authenticate using their credentials. /li>
+<li> <strong> Login Page: </strong> Users authenticate using their credentials. </li>
 </ul>
 
 <h3> Main Page </h3>
