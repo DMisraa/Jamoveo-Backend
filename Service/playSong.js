@@ -8,7 +8,7 @@ export default async function playSong(req, res) {
 
   let songUrlWithInstrument
   const songUrl = String(req.query.query);
-  console.log('Song URL:', songUrl)
+  
   
   if (!songUrl) {
     return res.status(400).json({ error: "Missing song URL" });
