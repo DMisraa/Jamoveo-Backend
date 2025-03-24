@@ -2,11 +2,12 @@
 
 <h2> Features </h2>
 
-Authentication
+<h3> Authentication </h3>
+<ul>
+<li> Signup Page: Users register with a username, password, and instrument. </li>
 
-Signup Page: Users register with a username, password, and instrument.
-
-Login Page: Users authenticate using their credentials.
+<li> Login Page: Users authenticate using their credentials. /li>
+</ul>
 
 Main Page
 
