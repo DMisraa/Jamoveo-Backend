@@ -4,13 +4,15 @@
 
 <h3> Authentication </h3>
 <ul>
-<li> Signup Page: Users register with a username, password, and instrument. </li>
+<li> <strong> Signup Page (Admin): </strong> Admins register through a dedicated URL to gain access to session management features. </li> 
+  
+<li> <strong> Signup Page: </strong> Users register with a username, password, and instrument. </li>
 
-<li> Login Page: Users authenticate using their credentials. /li>
+<li> <strong> Login Page: </strong> Users authenticate using their credentials. /li>
 </ul>
 
-Main Page
-
+<h3> Main Page </h3>
+<ul>
 Players: Initially see "Waiting for next song" until the admin selects one.
 
 Admin: Can search for songs in English or Hebrew.
@@ -22,6 +24,7 @@ Admin enters a search query and navigates to a results page.
 Displays song name, artist, and image (if available).
 
 Upon selection, moves all users to the live page.
+</ul>
 
 Live Page
 
