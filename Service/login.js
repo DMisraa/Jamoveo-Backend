@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { connectToDatabase } from '../utils/database.js';
 
@@ -13,7 +13,7 @@ export default async function login(req, res) {
         return res.status(401).json({ error: "Invalid username or password" });
       }
   
-      const isMatch = await bcrypt.compare(password, user.password);
+      const isMatch = await bcryptjs.compare(password, user.password);
       if (!isMatch) {
         return res.status(401).json({ error: "Invalid username or password" });
       }
