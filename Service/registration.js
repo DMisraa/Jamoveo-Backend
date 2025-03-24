@@ -1,10 +1,12 @@
-import { hash } from 'bcryptjs'; 
+
+import bcryptjs from 'bcryptjs';
 import { ObjectId } from 'mongodb';
 import jwt from 'jsonwebtoken';
 
 import { connectToDatabase } from '../utils/database.js';
 
 export default async function registrationHandler(req, res) {
+  const { hash } = bcryptjs;
 
   if (req.method === 'POST') {
     try {
