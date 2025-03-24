@@ -1,6 +1,6 @@
-<h1> JaMoveo - Rehearsal Room Web App <h1/>
+<h1> JaMoveo - Rehearsal Room Web App </h1>
 
-<h2> Features <h2/>
+<h2> Features </h2>
 
 Authentication
 
