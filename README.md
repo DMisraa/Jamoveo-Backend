@@ -31,7 +31,7 @@
 
 <h3> Technical Details </h3>
 
-  <li> <strong> Stack: </strong> Node.js, Next.JS </li>
+  <li> <strong> Stack: </strong> Node.js, Next.JS, Tailwind CSS </li>
 
   <li> <strong> Database: </strong> Stores users and roles via MongoDB. </li>
 
