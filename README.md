@@ -39,6 +39,18 @@
 
   <li> <strong> PageUpdates: </strong> Real-time updates via WebSockets. </li>
 
+  <ul>
+
+<li> <strong> "/" - </strong> Login </li>
+<li> <strong> "/signup" - </strong> User signup page </li>
+<li> <strong> "/adminSignup" - </strong> Admin signup page </li>
+<li> <strong> "/playerMainPage"  - </strong> User Main Page waiting for a song to be picked </li>
+<li> <strong> "/adminMainPage" - </strong> Admin Main Page - admin searches for a song for his session </li>
+<li> <strong> "/adminMainPage/adminResultsPage" - </strong> Admin picks a song from his search list he got from the previous page </li>
+<li> <strong> "/live" - </strong> live page, where all the magic happens ! </li>
+  
+</ul>
+
 <h3> Deployment & Access </h3>
 
 <ul>
