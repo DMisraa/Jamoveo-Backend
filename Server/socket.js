@@ -12,6 +12,11 @@ export function initializeWebSocket(io) {
       io.to(roomId).emit("songSelected", { songSelected: true, song, data });
     });
 
+    socket.on("quitSession", ({ roomId }) => {
+      console.log(`Session ended by admin for room: ${roomId}`);
+      io.to(roomId).emit("sessionAborted"); 
+    });
+
     socket.on("disconnect", () => {
       console.log("A user disconnected:", socket.id);
     });

@@ -1,0 +1,128 @@
+# General OS and Editor Files
+.DS_Store
+.Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.esproj
+*.csproj
+*.sln
+*.userprefs
+
+# Node.js Backend
+node_modules/
+package-lock.json
+yarn.lock
+npm-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Python Backend
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+venv/
+env/
+pip-log.txt
+pip-delete-this.txt
+.pytest_cache/
+htmlcov/
+.coverage
+*.egg-info/
+dist/
+build/
+sdist/
+
+# Java Backend (Maven)
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.nextBackup
+pom.xml.timestampBackup
+.mvn/wrapper/maven-wrapper.jar.sha256
+.mvn/wrapper/maven-wrapper.properties
+
+# Java Backend (Gradle)
+.gradle/
+build/
+settings.gradle.kts.lockfile
+settings.gradle.lockfile
+gradle-app.setting
+gradle-build-scan-data.json
+gradle-local.properties
+*.iml
+
+# Ruby on Rails Backend
+.bundle/
+vendor/bundle/
+log/*.log
+tmp/**
+*.sqlite3
+*.pids
+.ruby-version
+.sass-cache/
+Capfile.lock
+
+# Go Backend
+bin/
+pkg/
+*.exe
+*.test
+*.out
+
+# Databases
+*.sqlite
+*.db
+*.mdf
+*.ldf
+*.sql
+dump.sql*
+data/  # If your database files are stored here (be cautious!)
+
+# Logs
+logs/
+*.log
+
+# Environment Variables
+.env
+.env.*
+!.env.example  # Keep this if you have an example file
+
+# Secrets and Keys
+*.key
+*.pem
+*.pfx
+credentials.json
+auth.json
+config/secrets.yml  # Or similar sensitive configuration files
+
+# Build Output
+dist/
+build/
+public/build/  # If your backend serves static assets
+static/build/
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+
+# Deployment Specific
+.dockerignore
+docker-compose.override.yml
+.serverless/
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+
+# Other Backend Specific Files (add as needed)
+# Example: Cache directories, IDE specific build outputs
+
+# Ignore files that might contain secrets
+config/*.ini
+config/*.yml
+config/*.toml
+config/*.json
+!config/example.json 

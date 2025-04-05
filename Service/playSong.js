@@ -54,7 +54,7 @@ export default async function playSong(req, res) {
   const lyrics = [];
   const chords = [];
 
-  // Extract lyrics from <td class="song">
+  // Extract lyrics 
   $("td.song").each((index, element) => {
     let lyricText = $(element).text().trim();
     lyricText = lyricText.replace(/&nbsp;/g, ' '); // Replace &nbsp; with space
@@ -69,7 +69,7 @@ export default async function playSong(req, res) {
     const onmouseoverAttr = $(element).attr("onmouseover");
 
     if (onmouseoverAttr) {
-      // Extract the chord string from the onmouseover attribute
+      // Extract the chord 
       const chordData = onmouseoverAttr.match(/'([^']+)'/);
       if (chordData && chordData[1]) {
         chords.push(chordData[1]); // Add chord to chords array
